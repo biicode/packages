@@ -23,10 +23,10 @@ test_script:
   - cmd: bii cpp:configure -G "Visual Studio 12"
   - cmd: bii cpp:build
 
-on_success:
+deploy_script:
   - ps: cd ..
   - ps: choco pack
-  - ps: NuGet setApiKey $chocoAPIkey -Source https://chocolatey.org/
+  - cmd: NuGet setApiKey %chocoAPIkey% -Source https://chocolatey.org/
   - ps: $package = Get-ChildItem -Filter "*.nupkg"
   - ps: choco push $package
 
