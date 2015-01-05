@@ -26,7 +26,7 @@ test_script:
 deploy_script:
   - ps: cd ..
   - ps: choco pack
-  - ps: $package = Get-ChildItem -Filter "*.nupkg"
-  - ps: nuget push $package $secure_key -source https://chocolatey.org/ -NonInteractive
+  - cmd: set package = Get-ChildItem -Filter "*.nupkg"
+  - cmd: nuget push %package% %secure_key% -source https://chocolatey.org/ -NonInteractive
 
 
