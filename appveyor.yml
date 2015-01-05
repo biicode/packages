@@ -27,6 +27,6 @@ test_script:
   - cmd: cd ..
 
 deploy_script:
-  - cmd: nuget setApiKey %secure_key% -Source https://chocolatey.org/ -NonInteractive
+  - cmd: nuget setApiKey %secure_key% -Source https://chocolatey.org/ -NonInteractive > NUL #PLEASE DON'T WRITE MY KEY!!!!
   - cmd: nuget push %package% -Source https://chocolatey.org/ -NonInteractive
 
