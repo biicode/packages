@@ -19,7 +19,7 @@ test_script:
   - cmd: bii --version
   - cmd: bii init test
   - cmd: cd test
-  - cmd: bii open examples/cmq_cpp
+  - cmd: bii open examples/zmq_cpp
   - cmd: bii cpp:configure -G "Visual Studio 12"
   - cmd: bii cpp:build
 
