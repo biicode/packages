@@ -27,6 +27,7 @@ deploy_script:
   - ps: cd ..
   - ps: choco pack
   - cmd: set package = Get-ChildItem -Filter "*.nupkg"
-  - cmd: nuget push %package% %secure_key% -source https://chocolatey.org/ -NonInteractive
+  - cmd: nuget setApiKey %secure_key% -Source https://chocolatey.org/ 
+  - cmd: nuget push %package% -source https://chocolatey.org/ -NonInteractive
 
 
