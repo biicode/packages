@@ -1,6 +1,5 @@
 version: 1.0.{build}
 
-
 environment:
   secure_key:
     secure: 3n+Fp5U+pdW7mgyKwGA4EhdaXeuRaM8Tndwgx0mjvGjRz/e3EdVVh09GNlYoHbZg
@@ -24,12 +23,9 @@ test_script:
   - cmd: bii open examples/zmq_cpp
   - cmd: bii cpp:configure -G "Visual Studio 12"
   - cmd: bii cpp:build
+  - cmd: cd ..
 
 deploy_script:
-  - ps: cd ..
-  - ps: choco pack
-  - ps: Write-Host "biicode package: $package"
   - ps: nuget setApiKey $secure_key -Source https://chocolatey.org/ 
   - ps: nuget push $package -Source https://chocolatey.org/ -NonInteractive
-
 
