@@ -2,7 +2,7 @@ version: 1.0.{build}
 
 environment:
   secure_key:
-    secure: 3n+Fp5U+pdW7mgyKwGA4EhdaXeuRaM8Tndwgx0mjvGjRz/e3EdVVh09GNlYoHbZg
+    secure: EKopwujMqvJrkZBw0+Q8XP+PTO5Kh8zQMZFh2KS9OEl2GXbX9nqooVTEQEV7jIe0
 
 install:
   - cmd: choco install nuget.commandline
