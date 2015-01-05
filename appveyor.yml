@@ -26,8 +26,7 @@ test_script:
 deploy_script:
   - ps: cd ..
   - ps: choco pack
-  - cmd: NuGet setApiKey %secure_key% -Source https://chocolatey.org/
   - ps: $package = Get-ChildItem -Filter "*.nupkg"
-  - ps: choco push $package
+  - ps: nuget push $package $secure_key -source https://chocolatey.org/ -NonInteractive
 
 
