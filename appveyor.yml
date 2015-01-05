@@ -5,7 +5,7 @@ environment:
     secure: 3n+Fp5U+pdW7mgyKwGA4EhdaXeuRaM8Tndwgx0mjvGjRz/e3EdVVh09GNlYoHbZg
 
 install:
-  - cmd: chco install nuget.commandline
+  - cmd: choco install nuget.commandline
   - ps: cd .\windows\chocolatey
 
 build_script:
