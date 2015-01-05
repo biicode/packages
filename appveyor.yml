@@ -26,8 +26,9 @@ test_script:
 deploy_script:
   - ps: cd ..
   - ps: choco pack
-  - cmd: set package = Get-ChildItem -Filter "*.nupkg"
-  - cmd: nuget setApiKey %secure_key% -Source https://chocolatey.org/ 
-  - cmd: nuget push %package% -Source https://chocolatey.org/ -NonInteractive
+  - ps: $package=Get-ChildItem -Filter "*.nupkg"
+  - ps: Write-Host "biicode package: $package"
+  - ps: nuget setApiKey $secure_key -Source https://chocolatey.org/ 
+  - ps: nuget push $package -Source https://chocolatey.org/ -NonInteractive
 
 
