@@ -10,6 +10,7 @@ install:
 
 build_script:
   - cmd: choco pack
+  - ps: $package = Get-ChildItem -Filter "*.nupkg"
   - cmd: choco install cmake
   - cmd: choco install biicode -source %cd%
   - cmd: set PATH=%PATH:CMake 2.8\bin=%;C:\ProgramData\chocolatey\lib\cmake.3.0.2\content\cmake-3.0.2-win32-x86\bin
@@ -26,7 +27,6 @@ test_script:
 deploy_script:
   - ps: cd ..
   - ps: choco pack
-  - ps: $package = Get-ChildItem -Filter "*.nupkg"
   - ps: Write-Host "biicode package: $package"
   - ps: nuget setApiKey $secure_key -Source https://chocolatey.org/ 
   - ps: nuget push $package -Source https://chocolatey.org/ -NonInteractive
