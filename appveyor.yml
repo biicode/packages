@@ -1,7 +1,7 @@
 version: 1.0.{build}
 
 environment:
-  chocoAPIkey:
+  secure_key:
     secure: 3n+Fp5U+pdW7mgyKwGA4EhdaXeuRaM8Tndwgx0mjvGjRz/e3EdVVh09GNlYoHbZg
 
 install:
@@ -26,7 +26,7 @@ test_script:
 deploy_script:
   - ps: cd ..
   - ps: choco pack
-  - cmd: NuGet setApiKey %chocoAPIkey% -Source https://chocolatey.org/
+  - cmd: NuGet setApiKey %secure_key% -Source https://chocolatey.org/
   - ps: $package = Get-ChildItem -Filter "*.nupkg"
   - ps: choco push $package
 
