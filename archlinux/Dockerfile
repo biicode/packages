@@ -1,38 +1,44 @@
-FROM base/archlinux
+FROM base/archlinux  
 MAINTAINER Manu Sánchez <manuel.sanchez@biicode.com>
 
+# update base and install base-devel and multilib-devel
+# and purge package cache for image size
+RUN pacman -Syy --noconfirm
+RUN pacman -S --needed --noconfirm base-devel git wget libunistring
+RUN pacman-db-upgrade
 
-# System upgrade:
-
-RUN pacman -Syu --noconfirm --needed
-
-# Install git:
-
-RUN pacman -S git --noconfirm --needed
-
-# Install base-devel:
-
-RUN pacman -S base-devel --noconfirm --needed
-
+RUN echo "nobody ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    
 # Install yaourt:
 
-RUN mkdir yaourt-build
-
-RUN curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+RUN wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+RUN ls -al
 RUN tar zxvf package-query.tar.gz
+
 WORKDIR package-query
-RUN makepkg -si --asroot
+RUN chown -R nobody .
+RUN sudo -u nobody makepkg -si --noconfirm
 WORKDIR ..
+
 RUN curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+RUN ls -al
 RUN tar zxvf yaourt.tar.gz
+
 WORKDIR yaourt
-RUN makepkg -si --asroot
-WORKDIR ../..
+RUN chown -R nobody .
+RUN sudo -u nobody makepkg -si --noconfirm
+WORKDIR ..
 
 # Install python:
 
-pacman -S python2 --noconfirm --needed
+RUN pacman -S python2 --noconfirm --needed
 
 # Install aurploader:
 
 RUN yaourt -S python3-aur --noconfirm
+
+# Generate package
+
+RUN git clone https://github.com/Manu343726/biicode-packages
+WORKDIR biicode-packages/archlinux
+RUN ./generate.sh
