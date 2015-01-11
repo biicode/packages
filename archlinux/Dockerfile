@@ -16,9 +16,9 @@ RUN pacman -S --noconfirm python2
 
 RUN wget http://xyne.archlinux.ca/projects/python3-aur/src/python3-aur-2014.12.tar.xz
 RUN ls -al
-RUN tar zxvf python3-aur.tar.xz
+RUN tar xz python3-aur-2014.12.tar.xz
 
-WORKDIR python3-aur
+WORKDIR python3-aur-2014.12
 RUN chown -R nobody .
 RUN sudo -u nobody makepkg -si --noconfirm
 WORKDIR ..
