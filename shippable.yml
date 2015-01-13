@@ -1,29 +1,11 @@
-build_image: base/archlinux:latest
-before_install:
-# System upgrade:
-  - pacman -Syu --noconfirm --needed
-# Install git:
-  - pacman -S git --noconfirm --needed
-# Install base-devel:
-  - pacman -S base-devel --noconfirm --needed
-# Install yaourt:
-  - mkdir yaourt-build
+build_image: shippableimages/ubuntu1404_python
 
-  - curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
-  - tar zxvf package-query.tar.gz
-  - cd package-query
-  - makepkg -si --asroot
-  - cd ..
-  - curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
-  - tar zxvf yaourt.tar.gz
-  - cd yaourt
-  - makepkg -si --asroot
-  - cd ../..
-# Install python:
-  - pacman -S python2 --noconfirm --needed
-# Install aurploader:
-  - yaourt -S python3-aur --noconfirm
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install docker.io
 
 install:
-  - cd archlinux
-  - ./generate.sh
+  - cd ./archlinux
+
+script:
+  - docker build -t="manu343726/aurploader" .
