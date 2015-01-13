@@ -6,8 +6,8 @@
 #
 
 def settings():
-	return { "version": "2.0.1",
-			 "release_number": "2",
+	return { "version": "2.1.1",
+			 "release_number": "1",
 			 "arch_deps": ["cmake>=3.0.2", 
 			                "zlib", 
 			                "glibc", 
