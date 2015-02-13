@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>biicode</id>
     <title>biicode</title>
-    <version>2.1.1</version>
+    <version>2.3</version>
     <authors>Biicode Innovation, S.L.</authors>
     <owners>Manu343726</owners>
     <summary>File-based C/C++ dependency manager</summary>
@@ -27,15 +27,11 @@ Always wanted the power of `pip` or `maven` when dealing with large C/C++ codeba
     <licenseUrl>https://www.biicode.com/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
-## 2.1.1 (12-Jan-2015)
+## 2.3 (9-Feb-2015)
 
-- Fixed problem with biicode.conf [includes] of the form block/file.h: username
-- Arduino automatic reset for certain boards, those using the “catarina” uploader (leonardo, yun)
-- bii open better handling of versions and tracks
-- upgraded cmake minimum required version to 3.0
-- fixed security issue of token not discarded after changing password
-- improved error messages when biicode.conf incorrect
-- Website: Better block page header, reuses in Block requirements.
+- Better toolchain system for cross-compiling
+- Added –remote option to “bii publish” to publish github, bitbucket etc remotes info (remote, branch, tag and commit).
+- Web: Block view with visible VCS remote information.
     </releaseNotes>
     <dependencies>
       <dependency id="cmake"/>
