@@ -14,4 +14,4 @@ echo "Generating AUR package..."
 
 echo "Uploading package to AUR..."
 
-aurploader ./package/*.src.tar.gz --login ./aur_login --auto --keep-cookiejar
+aurploader ./package/*.src.tar.gz --auto --keep-cookiejar
