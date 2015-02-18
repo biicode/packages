@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>biicode</id>
     <title>biicode</title>
-    <version>2.3</version>
+    <version>2.4.1</version>
     <authors>Biicode Innovation, S.L.</authors>
     <owners>Manu343726</owners>
     <summary>File-based C/C++ dependency manager</summary>
@@ -27,11 +27,14 @@ Always wanted the power of `pip` or `maven` when dealing with large C/C++ codeba
     <licenseUrl>https://www.biicode.com/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
-## 2.3 (9-Feb-2015)
+## 2.4.1 (18-Feb-2015)
 
-- Better toolchain system for cross-compiling
-- Added –remote option to “bii publish” to publish github, bitbucket etc remotes info (remote, branch, tag and commit).
-- Web: Block view with visible VCS remote information.
+- Improved windows installer, more user options for path, icons, uninstaller, and fixed readme.txt linefeeds.
+- Improved cmake installation, with option –interactive “$bii setup:cpp -i”, now not adding it to path, so can coexist with 2.8 installs.
+- Recovered colored output of cmake builds
+- Enabled blocks linked with symlinks in linux, so 2 different projects can link to the same block
+- Fixed problem of cached badges
+- Fixed biicode.cmake issues for CLion, now CLion can be used with biicode
     </releaseNotes>
     <dependencies>
       <dependency id="cmake"/>
