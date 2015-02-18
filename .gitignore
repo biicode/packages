@@ -1,4 +1,4 @@
-/archlinux/
+/archlinux/*
 !/archlinux/Dockerfile
 !/archlinux/archpack_generator.py
 !/archlinux/archpack_settings.py
