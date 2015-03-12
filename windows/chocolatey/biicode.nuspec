@@ -42,7 +42,6 @@ Always wanted the power of `pip` or `maven` when dealing with large C/C++ codeba
 - Fixed broken Eclipse project generation
 - Fixed changing [requirements] when several blocks are simultaneously opened
 - Fixed incorrect warning about bad filenames of files which were in ignore.bii
-
     </releaseNotes>
     <dependencies>
       <dependency id="cmake"/>
