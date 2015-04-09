@@ -11,7 +11,7 @@ install:
 - juju -f pacman --noconfirm -Syy
 - juju -f pacman --noconfirm -S base-devel --needed
 - wget https://aur.archlinux.org/packages/au/aurup/aurup.tar.gz
-- tar xzf aurup.tar.xz
+- tar xzf aurup.tar.gz
 - cd aurup
 - juju makepkg -si --noconfirm
 - cd ..
