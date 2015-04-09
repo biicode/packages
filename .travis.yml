@@ -1,18 +1,18 @@
 language: bash
 
 install:
-    - PATH=$PWD/bin:$PATH
-    - juju -f echo 'Installing juju'
-    - sed -i -e "s/#Server/Server/" ~/.juju/etc/pacman.d/mirrorlist
-    - juju -f pacman --noconfirm -Syy
-    - juju -f pacman --noconfirm -S base-devel --needed
-    - wget http://xyne.archlinux.ca/projects/python3-aur/src/python3-aur-2014.12.tar.xz
-    - tar xz python3-aur-2014.12.tar.xz 
-    - cd python3-aur-2014.12
-    - juju makepkg -si --noconfirm
+  - PATH=$PWD/bin:$PATH
+  - juju -f echo 'Installing juju'
+  - sed -i -e "s/#Server/Server/" ~/.juju/etc/pacman.d/mirrorlist
+  - juju -f pacman --noconfirm -Syy
+  - juju -f pacman --noconfirm -S base-devel --needed
+  - wget http://xyne.archlinux.ca/projects/python3-aur/src/python3-aur-2014.12.tar.xz
+  - tar xz python3-aur-2014.12.tar.xz 
+  - cd python3-aur-2014.12
+  - juju makepkg -si --noconfirm
  	- cd ..
 
 script:
 # Test on installing package from AUR (issue #58)
 
-    - juju archlinux/generate.sh
+  - juju archlinux/generate.sh
