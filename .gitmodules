@@ -1,0 +1,3 @@
+[submodule "juju"]
+	path = juju
+	url = https://github.com/fsquillace/juju.git

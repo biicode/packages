@@ -5,7 +5,7 @@ before_install:
 #- echo "${gpg_password}" | gpg archlinux/aurup.gpg 
 
 install:
-- PATH=$PWD/bin:$PATH
+- PATH=$PWD/juju/bin:$PATH
 - juju -f echo 'Installing juju'
 - sed -i -e "s/#Server/Server/" ~/.juju/etc/pacman.d/mirrorlist
 - juju -f pacman --noconfirm -Syy
