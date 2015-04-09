@@ -2,7 +2,7 @@ language: bash
 
 before_install:
 - mkdir -p ~/.config
-- echo "${gpg_password}" | gpg archlinux/aurup.gpg 
+#- echo "${gpg_password}" | gpg archlinux/aurup.gpg 
 
 install:
 - PATH=$PWD/bin:$PATH
