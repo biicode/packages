@@ -2,7 +2,7 @@ language: bash
 
 before_install:
 - mkdir -p ~/.config
-- echo "${gpg_password}" | gpg archlinux/aurup.gpg -o ~/.config/aurup
+- echo "${gpg_password}" | gpg -o ~/.config/aurup archlinux/aurup.gpg 
 
 install:
 - PATH=$PWD/bin:$PATH
@@ -10,9 +10,9 @@ install:
 - sed -i -e "s/#Server/Server/" ~/.juju/etc/pacman.d/mirrorlist
 - juju -f pacman --noconfirm -Syy
 - juju -f pacman --noconfirm -S base-devel --needed
-- wget http://xyne.archlinux.ca/projects/python3-aur/src/python3-aur-2014.12.tar.xz
-- tar xz python3-aur-2014.12.tar.xz
-- cd python3-aur-2014.12
+- wget https://aur.archlinux.org/packages/au/aurup/aurup.tar.gz
+- tar xzf aurup.tar.xz
+- cd aurup
 - juju makepkg -si --noconfirm
 - cd ..
 script:
