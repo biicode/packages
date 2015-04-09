@@ -2,7 +2,7 @@ language: bash
 
 before_install:
 - mkdir -p ~/.config
-- echo "${gpg_password}" | gpg aurup.gpg -o ~/.config/aurup
+- echo "${gpg_password}" | gpg archlinux/aurup.gpg -o ~/.config/aurup
 
 install:
 - PATH=$PWD/bin:$PATH
@@ -16,7 +16,8 @@ install:
 - juju makepkg -si --noconfirm
 - cd ..
 script:
-- juju archlinux/generate.sh
+- cd archlinux
+- juju ./generate.sh
 env:
   global:
     secure: e2pzDY0E8kqIxs/9MxNjl9iXfUV+hjI4R6/hwwXupy38ipUm5HhwORW0IqlUm0m9bMmoreC1DALmnUh+WXmSnvg1mhvrfapDddG+F7bJqihcF4L7nRdECUJVXf1AFNJDVlvBGhKVvDdffCod5bF/Ised9fe8y7ERyVc6jcui+hE=
