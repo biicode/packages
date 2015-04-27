@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>biicode</id>
     <title>biicode</title>
-    <version>2.8</version>
+    <version>3.0</version>
     <authors>Biicode Innovation, S.L.</authors>
     <owners>Manu343726</owners>
     <summary>File-based C/C++ dependency manager</summary>
@@ -27,17 +27,15 @@ Always wanted the power of `pip` or `maven` when dealing with large C/C++ codeba
     <licenseUrl>https://www.biicode.com/</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>
-## 2.8 (7-Apr-2015)
+## 3.0 (15-Apr-2015)
 
-- Better computation of binary targets, if an executable does not depend on its own block library, it will not be linked
-- Removed automatic creation of cmake_dummy.cpp to avoid problems with header only libraries
-- Removed automatic handling of system deps (math, pthread, winsock), that created problems in new toolchains. Now users directly specify in CMakeLists their libs.
-- ADD_BIICODE_TARGETS() has been superseded by ADD_BII_TARGETS(), which will admit a biicode version number, this is done to achieve backwards compatibility while introducing new build behavior.
-- Fixed bug of include paths missing in [tests] targets
-- Fixed extra verbose message of warning about full path #includes
-- Optimized performance of ignore.bii for large number of patterns, that was incredibly slow
-- Now published blocks show publisher's user name
-- Security fixes
+- Open source release of client and common repositories, dev infraestructure re-made
+- Release of premium accounts for private blocks
+- Enabled OAuth with Github and Google
+- Fixed bug in C++ parser for `using` statements
+- Fixed bug in [tests] pattern that incorrectly affected dependencies
+- New Terms of Service, clarifying source code licenses and accounting for premium accounts and open source contributions
+- Fixed bug in user folder ".biicode" path, some config files were stored out of it
     </releaseNotes>
     <dependencies>
       <dependency id="cmake"/>
