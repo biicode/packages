@@ -6,7 +6,7 @@
 #
 
 def settings():
-	return { "version": "3.0",
+	return { "version": "3.3",
 			 "release_number": "1",
 			 "arch_deps": ["cmake>=3.0.2", 
 			                "zlib", 
