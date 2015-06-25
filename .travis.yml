@@ -5,7 +5,7 @@ before_install:
 #- echo "${gpg_password}" | gpg archlinux/aurup.gpg 
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_26c354e00b43_key -iv $encrypted_26c354e00b43_iv -in aur_biicode.enc -out archlinux/ssh-keys/aur_biicode -d
+- openssl aes-256-cbc -K $encrypted_26c354e00b43_key -iv $encrypted_26c354e00b43_iv -in archlinux/ssh-keys/aur_biicode.enc -out archlinux/ssh-keys/aur_biicode -d
 - chmod 600 archlinux/ssh-keys/aur_biicode
 - ssh-add archlinux/ssh-keys/aur_biicode
 - package_version=$(python archlinux/archpack_settings.py)
@@ -25,7 +25,8 @@ script:
 - cp ../PKGBUILD PKGBUILD
 - juju mksrcinfo
 - git add PKGBUILD .SRCINFO
-- git commit -m ""
+- git commit -m "Travis CI deploy ${package_version} (commit ${TRAVIS_COMMIT})"
+- git push
 env:
   global:
     secure: e2pzDY0E8kqIxs/9MxNjl9iXfUV+hjI4R6/hwwXupy38ipUm5HhwORW0IqlUm0m9bMmoreC1DALmnUh+WXmSnvg1mhvrfapDddG+F7bJqihcF4L7nRdECUJVXf1AFNJDVlvBGhKVvDdffCod5bF/Ised9fe8y7ERyVc6jcui+hE=
