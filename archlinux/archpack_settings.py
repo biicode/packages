@@ -25,4 +25,6 @@ def settings():
 			}
 
 if __name__ == '__main__': 
-    print(settings())
+    print( "biicode {}-{}".format(settings()["version"],
+    	                        settings()["release_number"]))
+
